@@ -1,0 +1,15 @@
+<p>
+  <label class="label">New fuel stop:</label>
+  <input [(ngModel)]="newFuelStop.mileage" type="number" placeholder="Enter mileage">
+  <input [(ngModel)]="newFuelStop.fuel" type="number" placeholder="Litres added">
+  <button class="button" (click)="addStop()">Add</button>
+</p>
+<p>
+  <ul>
+    <li *ngFor="let stop of fuelStops">
+      Mileage <span>{{stop.mileage}}</span>
+      Fuel <span>{{stop.fuel}}</span>
+    </li>
+  </ul>
+
+
