@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FuelStop } from '../../Types/FuelStop';
 import {FUELSTOPS} from '../../Mocks/MockFuelStops';
+import {Store} from '../../Store';
 
 @Component({
   selector: 'app-logger',
@@ -9,11 +10,17 @@ import {FUELSTOPS} from '../../Mocks/MockFuelStops';
 })
 export class LoggerComponent implements OnInit {
 
-  fuelStops: FuelStop[];
-  newFuelStop: FuelStop;
+  private fuelStops: FuelStop[];
+  private newFuelStop: FuelStop;
+  private store: Store;
 
   constructor() {
-    this.fuelStops = FUELSTOPS;
+    this.store = new Store({
+      // We'll call our data file 'user-preferences'
+      configName: Store.FUEL_STOPS,
+      defaults: FUELSTOPS
+    });
+    this.fuelStops = this.store.getData();
     this.newFuelStop = new FuelStop();
   }
 
@@ -22,5 +29,6 @@ export class LoggerComponent implements OnInit {
 
   addStop() {
     this.fuelStops.push(this.newFuelStop);
+    this.store.setData(this.fuelStops);
   }
 }
