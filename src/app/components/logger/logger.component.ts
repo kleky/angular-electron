@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FuelStop } from '../../Types/FuelStop';
-import {FUELSTOPS} from '../../Mocks/MockFuelStops';
-import {Store} from '../../Store';
+import { Store } from '../../Store';
+import { FuelLog } from '../../Types/FuelLog';
+import { UserDataStore } from '../../DataStore/UserDataStore';
+import { UserDataStoreOpts } from '../../DataStore/UserDataStoreOpts';
 
 @Component({
   selector: 'app-logger',
@@ -10,17 +12,13 @@ import {Store} from '../../Store';
 })
 export class LoggerComponent implements OnInit {
 
-  private fuelStops: FuelStop[];
-  private newFuelStop: FuelStop;
-  private store: Store;
+  public fuelLog: FuelLog;
+  public newFuelStop: FuelStop;
+  private store: Store<UserDataStore>;
 
   constructor() {
-    this.store = new Store({
-      // We'll call our data file 'user-preferences'
-      configName: Store.FUEL_STOPS,
-      defaults: FUELSTOPS
-    });
-    this.fuelStops = this.store.getData();
+    this.store = new Store<UserDataStore>(new UserDataStoreOpts());
+    this.fuelLog = new FuelLog(this.store.get('fuelLog'));
     this.newFuelStop = new FuelStop();
   }
 
@@ -28,7 +26,7 @@ export class LoggerComponent implements OnInit {
   }
 
   addStop() {
-    this.fuelStops.push(this.newFuelStop);
-    this.store.setData(this.fuelStops);
+    this.fuelLog.AddFuelStop(this.newFuelStop);
+    this.store.set('fuelLog', this.fuelLog);
   }
 }
