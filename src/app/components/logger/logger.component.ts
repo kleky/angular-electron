@@ -19,7 +19,7 @@ export class LoggerComponent implements OnInit {
   constructor() {
     this.store = new Store<UserDataStore>(new UserDataStoreOpts());
     this.fuelLog = new FuelLog(this.store.get('fuelLog'));
-    this.newFuelStop = new FuelStop();
+    this.newStop();
   }
 
   ngOnInit() {
@@ -28,5 +28,10 @@ export class LoggerComponent implements OnInit {
   addStop() {
     this.fuelLog.AddFuelStop(this.newFuelStop);
     this.store.set('fuelLog', this.fuelLog);
+    this.newStop();
+  }
+
+  newStop() {
+    this.newFuelStop = new FuelStop();
   }
 }
