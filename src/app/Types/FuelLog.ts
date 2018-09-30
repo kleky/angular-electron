@@ -8,7 +8,7 @@ export class FuelLog {
   public fuelStops: FuelStop[];
 
   public AddFuelStop(fuelStop: FuelStop) {
-    this.fuelStops.push(fuelStop);
+    this.fuelStops.push(new FuelStop(fuelStop));
   }
 
 }
