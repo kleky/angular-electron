@@ -1,15 +1,15 @@
-import {UserData} from './UserData';
+import {UserDataStore} from './UserDataStore';
 import {FuelLog} from '../Types/FuelLog';
 import {MOCKFUELSTOPS} from '../Mocks/MockFuelStops';
 import {IDataStoreOptions} from './IDataStoreOptions';
 import {Injectable} from '@angular/core';
 
-export class UserDataStoreOpts implements IDataStoreOptions<UserData> {
-  type = 'UserData';
+export class UserDataStoreOpts implements IDataStoreOptions<UserDataStore> {
+  type = 'UserDataStore';
   path: string;
-  defaults: UserData;
+  defaults: UserDataStore;
 
   constructor() {
-    this.defaults = new UserData();
+    this.defaults = new UserDataStore();
   }
 }
