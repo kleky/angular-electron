@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FuelStop } from '../../Types/FuelStop';
+import { FuelStop } from '../../types/FuelStop';
 import { Store } from '../../Store';
-import { FuelLog } from '../../Types/FuelLog';
-import { UserDataStore } from '../../DataStore/UserDataStore';
-import { UserDataStoreOpts } from '../../DataStore/UserDataStoreOpts';
+import { FuelLog } from '../../types/FuelLog';
+import { UserDataStore } from '../../datastore/UserDataStore';
+import { UserDataStoreOpts } from '../../datastore/UserDataStoreOpts';
 
 @Component({
   selector: 'app-logger',

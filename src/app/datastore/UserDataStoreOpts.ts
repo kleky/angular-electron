@@ -1,6 +1,6 @@
 import {UserDataStore} from './UserDataStore';
-import {FuelLog} from '../Types/FuelLog';
-import {MOCKFUELSTOPS} from '../Mocks/MockFuelStops';
+import {FuelLog} from '../types/FuelLog';
+import {MOCKFUELSTOPS} from '../mocks/MockFuelStops';
 import {IDataStoreOptions} from './IDataStoreOptions';
 import {Injectable} from '@angular/core';
 

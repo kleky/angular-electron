@@ -1,5 +1,5 @@
-import {IDataStore} from './DataStore/IDataStore';
-import {IDataStoreOptions} from './DataStore/IDataStoreOptions';
+import {IDataStore} from './datastore/IDataStore';
+import {IDataStoreOptions} from './datastore/IDataStoreOptions';
 
 const electron = require('electron');
 const path = require('path');

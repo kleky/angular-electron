@@ -1,4 +1,4 @@
-import { FuelStop} from '../Types/FuelStop';
+import { FuelStop} from '../types/FuelStop';
 
 export const MOCKFUELSTOPS: FuelStop[] = [
   { mileage: 15000, fuel: 45 },
