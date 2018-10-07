@@ -1,4 +1,4 @@
-import {FuelLog} from '../Types/FuelLog';
+import {FuelLog} from '../types/FuelLog';
 import {IDataStore} from './IDataStore';
 
 export class UserDataStore implements IDataStore {
