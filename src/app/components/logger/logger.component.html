@@ -2,14 +2,21 @@
   <label class="label">New fuel stop:</label>
   <input [(ngModel)]="newFuelStop.mileage" type="number" placeholder="Enter mileage">
   <input [(ngModel)]="newFuelStop.fuel" type="number" placeholder="Litres added">
-  <button class="button" (click)="addStop()">Add</button>
+  <ons-button modifier="outline" class="button" (click)="addStop()">Add</ons-button>
 </p>
-<p>
-  <ul>
-    <li *ngFor="let stop of fuelLog.fuelStops">
+
+<ons-list-title>Fuel Stops</ons-list-title>
+<ons-list>
+  <!--<ons-list-header>-->
+    <!--Normal List Items-->
+  <!--</ons-list-header>-->
+  <ons-list-item *ngFor="let stop of fuelLog.fuelStops">
+    <div class="center">
       Mileage <span>{{stop.mileage}}</span>
       Fuel <span>{{stop.fuel}}</span>
-    </li>
-  </ul>
+    </div>
+  </ons-list-item>
+</ons-list>
+
 
 
