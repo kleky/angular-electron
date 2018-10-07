@@ -1,7 +1,8 @@
 {
   "PAGES": {
       "HOME": {
-          "TITLE": "EcoTrack Fuel Tracker"
+          "TITLE": "EcoTrack Fuel Tracker",
+          "FOOTER": "Brought to you by kleky-tech©"
       }
   }
 }
