@@ -23,6 +23,7 @@ export class LoggerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newFuelStop = this.fuelLog.GetLastFuelStop();
   }
 
   addStop() {

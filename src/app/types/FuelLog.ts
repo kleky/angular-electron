@@ -11,4 +11,8 @@ export class FuelLog {
     this.fuelStops.push(new FuelStop(fuelStop));
   }
 
+  public GetLastFuelStop(): FuelStop {
+    return this.fuelStops[0]; // this.fuelStops.length - 1];
+  }
+
 }
