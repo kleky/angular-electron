@@ -4,11 +4,9 @@ import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { OnsenModule } from 'ngx-onsenui';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 
 // NG Translate
@@ -22,6 +20,9 @@ import { WebviewDirective } from './directives/webview.directive';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoggerComponent } from './components/logger/logger.component';
+
+import { OnsenModule } from 'ngx-onsenui';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -54,3 +55,5 @@ export function HttpLoaderFactory(http: HttpClient) {
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

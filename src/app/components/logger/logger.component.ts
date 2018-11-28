@@ -4,6 +4,7 @@ import { Store } from '../../Store';
 import { FuelLog } from '../../types/FuelLog';
 import { UserDataStore } from '../../datastore/UserDataStore';
 import { UserDataStoreOpts } from '../../datastore/UserDataStoreOpts';
+import * as ons from 'onsenui';
 
 @Component({
   selector: 'app-logger',
@@ -22,6 +23,9 @@ export class LoggerComponent implements OnInit {
     this.newStop();
   }
 
+  alert() {
+    ons.notification.alert('Hello, world!');
+  }
   ngOnInit() {
   }
 
