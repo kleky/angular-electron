@@ -1,24 +1,30 @@
-<p>
-  <label class="label">New fuel stop:</label>
-  <input [(ngModel)]="newFuelStop.mileage" type="number" placeholder="Enter mileage">
-  <input [(ngModel)]="newFuelStop.fuel" type="number" placeholder="Litres added">
-  <ons-button modifier="outline" class="button" (click)="addStop()">Add</ons-button>
-</p>
+  <div style="padding: 10px">
+
+    <ons-row>
+        <ons-col width="40%">
+            <ons-icon icon="fa-gas-pump"></ons-icon>
+            <div><ons-input [(ngModel)]="newFuelStop.mileage" type="number" placeholder="Current mileage" modifier="material"></ons-input></div>
+          </ons-col>
+
+      <ons-col width="40%">
+        Litres
+        <div><ons-input [(ngModel)]="newFuelStop.fuel" type="number" placeholder="Litre added" modifier="material"></ons-input></div>
+      </ons-col>
+      <ons-col width="20%">
+        <ons-button modifier="outline" class="button" (click)="addStop()">Add</ons-button>
+      </ons-col>
+    </ons-row>
+
+  </div>
 
 <ons-list-title>Fuel Stops</ons-list-title>
 <ons-list>
-  <!--<ons-list-header>-->
-    <!--Normal List Items-->
-  <!--</ons-list-header>-->
   <ons-list-item *ngFor="let stop of fuelLog.fuelStops">
     <div class="center">
       Mileage <span>{{stop.mileage}}</span>
       Fuel <span>{{stop.fuel}}</span>
     </div>
   </ons-list-item>
-  <p style="text-align: center">
-    <ons-button (click)="alert()">Click me!</ons-button>
-  </p>
 </ons-list>
 
 
