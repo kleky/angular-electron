@@ -27,6 +27,7 @@ export class LoggerComponent implements OnInit {
     ons.notification.alert('Hello, world!');
   }
   ngOnInit() {
+    
   }
 
   addStop() {
@@ -36,6 +37,11 @@ export class LoggerComponent implements OnInit {
   }
 
   newStop() {
-    this.newFuelStop = new FuelStop();
+    if(this.fuelLog.GetLastFuelStop() == null){
+      this.newFuelStop = new FuelStop();
+    } else {
+      this.newFuelStop = new FuelStop(this.fuelLog.GetLastFuelStop());
+    }
+    
   }
 }
