@@ -4,5 +4,9 @@
           "TITLE": "EcoTrack Fuel Tracker",
           "FOOTER": "Brought to you by kleky-tech©"
       }
+  },
+  "UOM": {
+      "MILEAGE" : "Mileage",
+      "LITRES" : "Litres"
   }
 }

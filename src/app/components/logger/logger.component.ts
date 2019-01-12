@@ -13,8 +13,8 @@ import * as ons from 'onsenui';
 })
 export class LoggerComponent implements OnInit {
 
-  public fuelLog: FuelLog;
-  public newFuelStop: FuelStop;
+  private fuelLog: FuelLog;
+  private newFuelStop: FuelStop;
   private store: Store<UserDataStore>;
 
   constructor() {
@@ -42,6 +42,9 @@ export class LoggerComponent implements OnInit {
     } else {
       this.newFuelStop = new FuelStop(this.fuelLog.GetLastFuelStop());
     }
-    
+  }
+
+  removeStop(fuelStop: FuelStop) {
+    this.fuelLog.RemoveFuelStop(fuelStop);
   }
 }

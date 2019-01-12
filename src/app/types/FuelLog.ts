@@ -8,10 +8,15 @@ export class FuelLog {
   public fuelStops: FuelStop[];
 
   public AddFuelStop(fuelStop: FuelStop) {
-    this.fuelStops.push(new FuelStop(fuelStop));
+    this.fuelStops.unshift(new FuelStop(fuelStop));
   }
 
   public GetLastFuelStop(): FuelStop {
     return this.fuelStops[this.fuelStops.length - 1];
+  }
+
+  public RemoveFuelStop(fuelStop: FuelStop){
+    this.fuelStops.splice(
+      this.fuelStops.indexOf(fuelStop), 1);
   }
 }

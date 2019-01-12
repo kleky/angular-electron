@@ -1,0 +1,16 @@
+$stop-add-fontsize: 1.75em;
+
+.mileage-list {
+    padding: 0 1em 0 0;
+    font-size: $stop-add-fontsize;
+}
+  
+.fuel-list {
+    padding: 0 1em 0 0.2em;
+    font-size: $stop-add-fontsize;
+}
+
+.full-width {
+    width: 100%; 
+    text-align: center;
+}
