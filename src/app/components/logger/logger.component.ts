@@ -23,6 +23,8 @@ export class LoggerComponent implements OnInit {
     this.newStop();
   }
 
+  ngOnInit(){}
+  
   alert() {
     ons.notification.alert('Hello, world!');
   }
