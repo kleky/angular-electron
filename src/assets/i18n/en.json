@@ -3,10 +3,17 @@
       "HOME": {
           "TITLE": "EcoTrack Fuel Tracker",
           "FOOTER": "Brought to you by kleky-tech©"
+      },
+      "LOGGER": {
+          "FUEL_STOPS": "Fuel Stops"
       }
   },
   "UOM": {
       "MILEAGE" : "Mileage",
       "LITRES" : "Litres"
+  }, 
+  "ACTIONS": {
+      "ADD": "Add",
+      "REMOVE": "Remove"
   }
 }
