@@ -26,9 +26,6 @@ export class LoggerComponent implements OnInit {
   alert() {
     ons.notification.alert('Hello, world!');
   }
-  ngOnInit() {
-    
-  }
 
   addStop() {
     this.fuelLog.AddFuelStop(this.newFuelStop);

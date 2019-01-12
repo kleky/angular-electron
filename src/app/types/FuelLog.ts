@@ -12,7 +12,7 @@ export class FuelLog {
   }
 
   public GetLastFuelStop(): FuelStop {
-    return this.fuelStops[this.fuelStops.length - 1];
+    return this.fuelStops[0];
   }
 
   public RemoveFuelStop(fuelStop: FuelStop){
