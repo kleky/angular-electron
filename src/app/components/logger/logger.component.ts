@@ -16,6 +16,7 @@ export class LoggerComponent implements OnInit {
   private fuelLog: FuelLog;
   private newFuelStop: FuelStop;
   private store: Store<UserDataStore>;
+  private fuelEconomy: number
 
   constructor() {
     this.store = new Store<UserDataStore>(new UserDataStoreOpts());
@@ -23,16 +24,39 @@ export class LoggerComponent implements OnInit {
     this.newStop();
   }
 
-  ngOnInit(){}
+  ngOnInit(){
+    this.renderEconomy();
+  }
   
   alert() {
     ons.notification.alert('Hello, world!');
+  }
+
+  renderEconomy(){
+    if(this.fuelLog.fuelStops.length > 1) {
+      this.fuelEconomy = this.calculatedEconomy(this.fuelLog.fuelStops);
+      console.log('Economy calculated as ' + this.fuelEconomy);
+    } else {
+      this.fuelEconomy = null;
+    }
+  }
+
+  /**
+   * @param fuelStops Ordered list with most recent fuel stop at index 0
+   */
+  calculatedEconomy(fuelStops: FuelStop[]){
+    let totalDistance = fuelStops[0].mileage - fuelStops[fuelStops.length - 1].mileage;
+    let totalFuel = fuelStops.reduce((p, c) => p + c.fuel, 0) - fuelStops[fuelStops.length - 1].fuel; //take away first entry of fuel
+    let gallons = totalFuel * 0.22; //litres -> gallons
+    return totalDistance / gallons;
+    
   }
 
   addStop() {
     this.fuelLog.AddFuelStop(this.newFuelStop);
     this.store.set('fuelLog', this.fuelLog);
     this.newStop();
+    this.renderEconomy();
   }
 
   newStop() {
@@ -45,5 +69,6 @@ export class LoggerComponent implements OnInit {
 
   removeStop(fuelStop: FuelStop) {
     this.fuelLog.RemoveFuelStop(fuelStop);
+    this.renderEconomy();
   }
 }

@@ -1,6 +1,9 @@
   <div style="padding: 10px">
 
     <ons-row>
+      Economy <input [(ngModel)]="fuelEconomy" />
+    </ons-row>
+    <ons-row>
         <ons-col width="40%">
             <span>{{ 'UOM.MILEAGE' | translate }}</span>
             <div><ons-input [(ngModel)]="newFuelStop.mileage" type="number" placeholder="Current mileage" modifier="material"></ons-input></div>
