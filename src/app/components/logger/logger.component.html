@@ -1,7 +1,13 @@
   <div style="padding: 10px">
 
     <ons-row>
-      Economy <input [(ngModel)]="fuelEconomy" />
+      <div class="economy-widget">
+        <label>Economy</label> 
+        <span class="economy-value">{{ fuelEconomy | number: '1.1-1' }} mpg</span>
+      </div>
+    </ons-row>
+    <ons-row>
+      <hr />
     </ons-row>
     <ons-row>
         <ons-col width="40%">
@@ -25,9 +31,9 @@
 <ons-list>
   <ons-list-item *ngFor="let fueldStop of fuelLog.fuelStops">
     <div class="center">
-      <span class="mileage-list">{{fueldStop.mileage}}</span>
+      <span class="mileage-list">{{ fueldStop.mileage | number }}</span>
       <ons-icon icon="fa-gas-pump"></ons-icon>
-      <span class="fuel-list">{{fueldStop.fuel}}</span>
+      <span class="fuel-list">{{fueldStop.fuel | number }}</span>
     </div>
     <div class="right">
       <ons-button modifier="outline" class="button" (click)="removeStop(fueldStop)">{{ 'ACTIONS.REMOVE' | translate}}</ons-button>

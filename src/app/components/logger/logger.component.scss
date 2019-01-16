@@ -14,3 +14,14 @@ $stop-add-fontsize: 1.75em;
     width: 100%; 
     text-align: center;
 }
+
+.economy-widget {
+    border: 0.1em grey solid;
+    border-radius: 1em;
+    padding: 0.7em;
+    margin: 0 auto;
+}
+
+.economy-widget > label {
+    padding: 0.2em;
+}
