@@ -45,8 +45,13 @@ export class LoggerComponent implements OnInit {
    * @param fuelStops Ordered list with most recent fuel stop at index 0
    */
   calculatedEconomy(fuelStops: FuelStop[]){
+
+    fuelStops.forEach((stop) => console.log(stop.fuel + " milieage: " + stop.mileage));
+
     let totalDistance = fuelStops[0].mileage - fuelStops[fuelStops.length - 1].mileage;
-    let totalFuel = fuelStops.reduce((p, c) => p + c.fuel, 0) - fuelStops[fuelStops.length - 1].fuel; //take away first entry of fuel
+    let totalFuel = fuelStops
+      .reduce((sum, curr) => sum + Number(curr.fuel), 0) 
+      - Number(fuelStops[fuelStops.length - 1].fuel); //take away first entry of fuel
     let gallons = totalFuel * 0.22; //litres -> gallons
     return totalDistance / gallons;
     
@@ -56,7 +61,6 @@ export class LoggerComponent implements OnInit {
     this.fuelLog.AddFuelStop(this.newFuelStop);
     this.store.set('fuelLog', this.fuelLog);
     this.newStop();
-    this.renderEconomy();
   }
 
   newStop() {
@@ -65,10 +69,12 @@ export class LoggerComponent implements OnInit {
     } else {
       this.newFuelStop = new FuelStop(this.fuelLog.GetLastFuelStop());
     }
+    this.renderEconomy();
   }
 
   removeStop(fuelStop: FuelStop) {
     this.fuelLog.RemoveFuelStop(fuelStop);
+    this.store.set('fuelLog', this.fuelLog);
     this.renderEconomy();
   }
 }

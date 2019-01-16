@@ -1,7 +1,7 @@
   <div style="padding: 10px">
 
     <ons-row>
-      <div class="economy-widget">
+      <div *ngIf="fuelEconomy > 0" class="economy-widget">
         <label>Economy</label> 
         <span class="economy-value">{{ fuelEconomy | number: '1.1-1' }} mpg</span>
       </div>
