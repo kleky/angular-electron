@@ -1,7 +1,7 @@
 import {FuelLog} from '../types/FuelLog';
-import {IDataStore} from './IDataStore';
+import {IVersionedData} from './IVersionedData';
 
-export class UserDataStore implements IDataStore {
+export class UserDataStore implements IVersionedData {
   public Version = 0.3;
   public fuelLog: FuelLog;
 

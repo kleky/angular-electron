@@ -1,15 +1,16 @@
-import {IDataStore} from './datastore/IDataStore';
+import {IVersionedData} from './datastore/IVersionedData';
 import {IDataStoreOptions} from './datastore/IDataStoreOptions';
+import { IStore } from './datastore/IStore';
 
 const electron = require('electron');
 const path = require('path');
 const fs = require('fs');
 
-export class Store<T extends IDataStore> {
-  private opts: IDataStoreOptions<T>;
-  private data: T;
+export class FileStore<TData extends IVersionedData> implements IStore {
+  private opts: IDataStoreOptions<TData>;
+  private data: TData;
 
-constructor(opts: IDataStoreOptions<T>) {
+constructor(opts: IDataStoreOptions<TData>) {
     const userDataPath = (electron.app || electron.remote.app).getPath('userData');
     this.opts = opts;
     this.opts.path = path.join(userDataPath, opts.type + '.json');
@@ -28,7 +29,7 @@ constructor(opts: IDataStoreOptions<T>) {
 
   private loadDataFile() {
     try {
-      let data = <T> JSON.parse(fs.readFileSync(this.opts.path));
+      let data = <TData> JSON.parse(fs.readFileSync(this.opts.path));
       if (data.Version < this.opts.defaults.Version) {
         console.log('Old version [' + data.Version + '] of [' + this.opts.type + ']. New version is [' + this.data.Version + []);
         // todo - map across old data https://github.com/loedeman/AutoMapper

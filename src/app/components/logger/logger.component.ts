@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FuelStop } from '../../types/FuelStop';
-import { Store } from '../../Store';
+import { FileStore } from '../../Store';
 import { FuelLog } from '../../types/FuelLog';
 import { UserDataStore } from '../../datastore/UserDataStore';
 import { UserDataStoreOpts } from '../../datastore/UserDataStoreOpts';
 import * as ons from 'onsenui';
+import { IVersionedData } from '../../datastore/IVersionedData';
+import { IStore } from '../../datastore/IStore';
 
 @Component({
   selector: 'app-logger',
@@ -15,11 +17,11 @@ export class LoggerComponent implements OnInit {
 
   private fuelLog: FuelLog;
   private newFuelStop: FuelStop;
-  private store: Store<UserDataStore>;
+  private store: IStore;
   private fuelEconomy: number
 
   constructor() {
-    this.store = new Store<UserDataStore>(new UserDataStoreOpts());
+    this.store = new FileStore<UserDataStore>(new UserDataStoreOpts());
     this.fuelLog = new FuelLog(this.store.get('fuelLog'));
     this.newStop();
   }
